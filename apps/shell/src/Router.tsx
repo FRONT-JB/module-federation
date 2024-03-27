@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
   Navigate,
 } from "react-router-dom";
-import { Layout } from "./components";
+import { Auth0ProviderWithNavigator, Layout } from "./components";
 import { routePath } from "./constants";
 
 const AppPostingLazy = React.lazy(() => import("./components/AppPosting"));
@@ -12,7 +12,12 @@ const AppPostingLazy = React.lazy(() => import("./components/AppPosting"));
 const browserRouter = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <Auth0ProviderWithNavigator>
+        <Layout />
+      </Auth0ProviderWithNavigator>
+    ),
+    errorElement: <div>404 Not Found</div>,
     children: [
       {
         index: true,

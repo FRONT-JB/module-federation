@@ -1,9 +1,28 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { routePath } from "../constants";
-import { Icon } from "@mf_genie/ui-kit";
+import { Button, Icon } from "@mf_genie/ui-kit";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Layout() {
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
+  const handleLogin = async () => {
+    await loginWithRedirect({
+      appState: {
+        returnTo: "/",
+      },
+    });
+  };
+
+  const handleLogout = async () => {
+    await logout({
+      logoutParams: {
+        returnTo: window.location.origin,
+      },
+    });
+  };
+
   return (
     <div>
       <header className="global-nav">
@@ -37,6 +56,26 @@ function Layout() {
 
             <span>Logo</span>
           </NavLink>
+
+          {!isAuthenticated && (
+            <div
+              style={{
+                marginLeft: "20px",
+              }}
+            >
+              <Button onClick={handleLogin}>Login</Button>
+            </div>
+          )}
+
+          {isAuthenticated && (
+            <div
+              style={{
+                marginLeft: "20px",
+              }}
+            >
+              <Button onClick={handleLogout}>Logout</Button>
+            </div>
+          )}
 
           <nav className="global-nav-nav">
             <ul className="global-nav-items">
@@ -75,9 +114,7 @@ function Layout() {
         </div>
       </header>
 
-      <div className="global-container">
-        <Outlet />
-      </div>
+      <div className="global-container">{isAuthenticated && <Outlet />}</div>
     </div>
   );
 }
