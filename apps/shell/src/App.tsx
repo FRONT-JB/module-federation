@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import "@mf_genie/ui-kit/index.css";
-import { Button } from "@mf_genie/ui-kit";
+import { Button, Icon } from "@mf_genie/ui-kit";
 
 const App = () => (
   <div className="container">
@@ -12,7 +12,11 @@ const App = () => (
     <div>CSS: Empty CSS</div>
 
     <div>
-      <Button />
+      <Button>Button</Button>
+    </div>
+
+    <div>
+      <Icon.Home />
     </div>
   </div>
 );
