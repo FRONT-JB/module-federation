@@ -55,8 +55,12 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
-        // monorepo workspace package의 dependency 설정
+        // monorepo workspace package의 dependency 설정 (ui-kit)
         "@mf_genie/ui-kit": {
+          singleton: true,
+        },
+        // monorepo workspace package의 dependency 설정 (shell-router)
+        "@mf_genie/shell-router": {
           singleton: true,
         },
       },

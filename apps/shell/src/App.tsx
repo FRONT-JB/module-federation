@@ -3,6 +3,9 @@ import ReactDOM from "react-dom/client";
 
 import "@mf_genie/ui-kit/index.css";
 import { Button, Icon } from "@mf_genie/ui-kit";
+import { test } from "@mf_genie/shell-router";
+
+test();
 
 const App = () => (
   <div className="container">
