@@ -1,0 +1,33 @@
+{
+  "folders": [
+    {
+      "name": "shell",
+      "path": "apps/shell"
+    },
+    {
+      "name": "posting",
+      "path": "apps/posting"
+    },
+    {
+      "name": "shell-router",
+      "path": "packages/shell-router"
+    },
+    {
+      "name": "ui-kit",
+      "path": "packages/ui-kit"
+    },
+    {
+      "name": "server",
+      "path": "server"
+    },
+    {
+      "name": "monorepo",
+      "path": "."
+    }
+  ],
+  // root path의 settings와 같은 역할
+  "settings": {
+    // root의 typescript 버전을 사용
+    "typescript.tsdk": "monorepo/node_modules/typescript/lib"
+  }
+}
