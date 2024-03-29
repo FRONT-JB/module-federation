@@ -12,6 +12,10 @@
     "build:start": {
       "cache": false,
       "persistent": true
+    },
+    "server:start": {
+      "cache": false,
+      "persistent": true
     }
   }
 }

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "turbo start:live",
     "build": "turbo build",
-    "serve": "turbo build:start"
+    "serve": "turbo build:start",
+    "server:start": "pnpm -F @mf_genie/server start:live"
   },
   "keywords": [],
   "author": "",
