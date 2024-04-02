@@ -1,9 +1,5 @@
 {
   "compilerOptions": {
-    "paths": {
-      "posting/injector": ["../posting/src/injector"],
-      "edu/injector": ["../edu/src/injector"]
-    },
     "target": "ES6", // Specify ECMAScript target version
     "outDir": "dist",
     "lib": ["dom", "dom.iterable", "esnext"], // List of library files to be included in the compilation

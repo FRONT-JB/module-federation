@@ -9,6 +9,8 @@ import { routePath } from "./constants";
 
 const AppPostingLazy = React.lazy(() => import("./components/AppPosting"));
 
+const AppEduLazy = React.lazy(() => import("./components/AppEdu"));
+
 const browserRouter = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +30,14 @@ const browserRouter = createBrowserRouter([
         element: (
           <Suspense fallback="...posting loading">
             <AppPostingLazy />
+          </Suspense>
+        ),
+      },
+      {
+        path: `${routePath.Edu}/*`,
+        element: (
+          <Suspense fallback="...edu loading">
+            <AppEduLazy />
           </Suspense>
         ),
       },
