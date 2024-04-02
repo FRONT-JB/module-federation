@@ -3,7 +3,7 @@ const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 
-const AUTH0_DOMAIN = process.env.AUTH0_DOMAIN;
+const AUTH0_DOMAIN = "dev-it85fo770ssapz14.us.auth0.com";
 
 server.use(middlewares);
 
@@ -35,13 +35,13 @@ server.listen(4000, () => {
 
 async function isAuthorized(req) {
   try {
-    const authorization = req.headers.authorization;
+    const Authorization = req.headers.authorization;
 
     const url = `https://${AUTH0_DOMAIN}/userInfo`;
 
     const res = await fetch(url, {
       headers: {
-        authorization,
+        Authorization,
       },
     });
 
@@ -49,9 +49,7 @@ async function isAuthorized(req) {
 
     req.user = json;
 
-    console.log(res);
-
-    return Boolean(req.user);
+    return true;
   } catch (error) {
     return false;
   }
